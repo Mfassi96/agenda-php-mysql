@@ -1,0 +1,20 @@
+{
+  "name": "articulos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch estilos.scss styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "sweetalert2": "^11.7.27"
+  },
+  "devDependencies": {
+    "sass": "^1.66.1"
+  }
+}
