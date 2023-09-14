@@ -37,13 +37,13 @@ require('conexion.php');
 </div>
 
 <div class="row">
-    <div class="col-md-6 col-12">
+    <div class="col-12">
         <form action="datos.php" class="form" method="post">
             <label for="inputnombre" class="form-label">Nombre</label>
-            <input type="text" readonly id="inputnombre"class="form-control">
+            <input type="text" readonly id="inputnombre"class="form-control" name="camponombre">
 
             <label for="inputdireccion" class="form-label">Direccion</label>
-            <input type="text" readonly id="inputdireccion"class="form-control">
+            <input type="text" readonly id="inputdireccion"class="form-control" name="campodireccion">
 
             <!-- <label for="inputtelefono" class="form-label">Numero de telefono</label>
             <input type="text" readonly id="inputtelefono"class="form-control"> -->
@@ -51,12 +51,12 @@ require('conexion.php');
             <div class="row my-3">
                 <div class="col-md-6 col-12">
                     <label for="caracteristica">Caracteristica</label>
-                    <input type="number" name="caracteristica" id="caracteristica" class="form-control">
+                    <input type="number" name="campocaracteristica" id="caracteristica" class="form-control" >
                 </div>
 
                 <div class="col-md-6 col-12">
                     <label for="numerotelefono">Numero de telefono</label>
-                    <input type="number" name="numero" id="numerotelefono" class="form-control">
+                    <input type="number" name="camponumero" id="numerotelefono" class="form-control" n>
                 </div>
             </div>
             <input type="submit" value="ENVIAR" id="btnEnviar" class="btn btn-success btn-lg form-control mt-3">
@@ -67,7 +67,7 @@ require('conexion.php');
         </form>
     </div>
     
-    <div class="col-md-6 col-12">
+    <div class=" col-12">
         <?php
         $conn->prepare("SELECT * FROM info_contactos");
         $stmt=$conn->prepare("SELECT * FROM info_contactos");
@@ -84,7 +84,7 @@ require('conexion.php');
                 <th>DIRECCION</th>
                 <th>CARACTERISTICA</th>
                 <th>NUMERO</th>
-                <th>ACCIONES</th>
+                <th colspan="3">ACCIONES</th>
             </tr>
         </thead>
 
@@ -98,13 +98,33 @@ require('conexion.php');
                             <td><?php echo $fila['DIRECCION']; ?></td>
                             <td><?php echo $fila['CARACTERISTICA']; ?></td>
                             <td><?php echo $fila['NUMERO']; ?></td>
+                            
                             <td>
                                 <button class="btn btn-success">
-                                <a href="http://wa.me/+54<?php echo $fila['NUMERO']; ?>">
+                                <a href="http://wa.me/+54<?php echo $fila['NUMERO']; ?>" target="_blank">
                                 <i class="fa-brands fa-square-whatsapp"> </i>
                                 </a>
                                 </button>
                             </td>
+
+                            <td>
+                                <button class="btn btn-info">
+                                <a href="#">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                </button>
+                            </td>
+
+
+
+                            <td>
+                                <button class="btn btn-danger">
+                                <a href="#">
+                                <i class="fa-solid fa-trash-can"></i>
+                                </a>
+                                </button>
+                            </td>
+
                     <?php echo"</tr>";
 
             }
